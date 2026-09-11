@@ -1,0 +1,3 @@
+export function TanGate({ state }: { state: 'closed' | 'failed' | 'open' }) {
+  return <svg className={`obstacle-svg gate-${state}`} data-gate={state} viewBox="0 0 280 200" role="img" aria-label="ประตู Tan"><path d="M48 184 V58 Q48 20 88 20 H192 Q232 20 232 58 V184" fill="none" stroke="#725334" strokeWidth="24" /><path className="gate-left" d="M73 63 H137 V181 H73Z" fill="#b1783f" stroke="#51371f" strokeWidth="4" /><path className="gate-right" d="M143 63 H207 V181 H143Z" fill="#b1783f" stroke="#51371f" strokeWidth="4" /><circle cx="116" cy="121" r="10" fill="#c47725" /><circle cx="164" cy="121" r="10" fill="#c47725" /><path d="M116 121 H164" stroke="#f2c870" strokeWidth="5" /></svg>;
+}

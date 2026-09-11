@@ -1,0 +1,16 @@
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
+import './globals.css';
+
+export const metadata: Metadata = {
+  title: 'อาณาจักรสี่จตุภาค | Four Quadrants Kingdom',
+  description: 'ต้นแบบเกมเรียนรู้เครื่องหมายตรีโกณมิติผ่านตำแหน่งบนวงกลมหนึ่งหน่วย',
+};
+
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+  return (
+    <html lang="th">
+      <body>{children}</body>
+    </html>
+  );
+}

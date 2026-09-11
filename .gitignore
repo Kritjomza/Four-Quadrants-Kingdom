@@ -1,0 +1,27 @@
+# Agents & Skills
+.agents
+.claude
+.codex
+.cursor
+AGENTS.md
+CLAUDE.md
+skills-lock.json
+
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+build/
+
+# Misc
+.DS_Store
+*.pem
+
+# Env
+.env*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
