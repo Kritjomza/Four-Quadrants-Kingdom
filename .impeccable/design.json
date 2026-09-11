@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-11T00:00:00+07:00",
+  "title": "Design System: Four Quadrants Kingdom",
+  "extensions": {
+    "colorMeta": {
+      "button-green": { "role": "primary", "displayName": "Button Green" },
+      "brass": { "role": "secondary", "displayName": "Sky Brass" },
+      "night-ink": { "role": "neutral", "displayName": "Night Ink" },
+      "parchment": { "role": "neutral", "displayName": "Moon Parchment" },
+      "ink": { "role": "neutral", "displayName": "Expedition Sepia" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Opening title", "purpose": "Thai-first opening title; mobile uses 3.3rem." },
+      "angle": { "displayName": "Angle numerals", "purpose": "Digital angle values; smaller variants preserve scene space." }
+    },
+    "shadows": [
+      { "name": "journal-shadow", "value": "0 18px 48px #080f1a55", "purpose": "Paper screens and HUD." },
+      { "name": "primary-action", "value": "0 6px 14px #14251d40, inset 0 0 0 3px #ffffff12", "purpose": "Tactile primary action." },
+      { "name": "angle-card", "value": "0 12px 20px #52391c26", "purpose": "Separate the held angle card from its background." }
+    ],
+    "motion": [
+      { "name": "motion-out", "value": "cubic-bezier(.16,1,.3,1)", "purpose": "Card, feedback, gate, lift and reward movement." },
+      { "name": "feedback-arrival", "value": "250ms", "purpose": "Move feedback into place by 6px." },
+      { "name": "tower-lift", "value": "650ms", "purpose": "Show vertical success." },
+      { "name": "gate-open", "value": "700ms", "purpose": "Open Tan Gate by rotating its PNG layer." },
+      { "name": "reduced-motion", "value": "animation: none !important; transition-duration: .01ms !important", "purpose": "Preserve final states without animated travel when reduced motion is requested." }
+    ],
+    "breakpoints": [
+      { "name": "workbench-stack-max", "value": "900px" },
+      { "name": "base-layout-stack-max", "value": "760px" },
+      { "name": "final-layout-stack-max", "value": "620px" },
+      { "name": "opening-height-sizing-min", "value": "601px" },
+      { "name": "journal-mobile-max", "value": "600px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Green parchment-world action with raised hover and explicit focus.",
+      "html": "<button class=\"ds-primary\">เดินทางต่อ</button>",
+      "css": ".ds-primary{font-family:inherit;font-size:1rem;font-weight:750;min-height:54px;padding:12px 32px;background:#285c53;color:#fff7e4;border:1px solid #608274;border-radius:8px;cursor:pointer;box-shadow:0 6px 14px #14251d40,inset 0 0 0 3px #ffffff12;transition:transform 180ms ease-out,background 180ms ease-out}.ds-primary:hover:not(:disabled){background:#1b4a43;transform:translateY(-3px)}.ds-primary:active:not(:disabled){transform:translateY(1px)}.ds-primary:focus-visible{outline:3px solid var(--focus,#ffd76a);outline-offset:3px}.ds-primary:disabled{opacity:.65}@media(prefers-reduced-motion:reduce){.ds-primary{transition-duration:.01ms!important}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Living Field Journal",
+    "overview": "An explorer's field journal opens into a living fantasy landscape. Painted scenery provides wonder, parchment and brass make controls tactile, and crisp HTML/SVG keeps mathematics readable. This extends the approved world. Reviewer disposition is ship for initial Cos desktop/mobile screenshots only; all states are not visually certified.",
+    "keyCharacteristics": ["Painted scenes with CSS parchment and brass controls", "Thai-first typography and digital geometry", "Purposeful spatial motion with reduced-motion support", "Existing raster assets reused; no new raster files"],
+    "rules": [
+      { "name": "Explicit Sign Rule", "body": "Color accompanies labels and signs; it never determines the mathematical answer.", "section": "colors" },
+      { "name": "Digital Geometry Rule", "body": "Render numbers, angles, signs, labels, and axes in HTML or SVG, never raster scenery.", "section": "typography" }
+    ],
+    "dos": ["Do extend the existing Living Field Journal identity.", "Do use causal spatial movement and preserve reduced-motion final states.", "Do identify LandArt as crops of the existing style board, not four production landscape files."],
+    "donts": ["Don't introduce personified skill cards or glossy plastic styling.", "Don't bake mathematical labels into images.", "Don't replace CSS bridge/tower geometry with rejected alpha-test assets.", "Don't claim every state is visually certified."]
+  }
+}

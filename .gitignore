@@ -18,6 +18,7 @@ build/
 # Misc
 .DS_Store
 *.pem
+.impeccable/review/
 
 # Env
 .env*
