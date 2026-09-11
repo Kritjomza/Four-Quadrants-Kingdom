@@ -17,6 +17,8 @@ it('assembles four fragments, completes five All questions, shows results, and r
   render(<Game initialState={{ phase: 'assembly', fragments: ['Q1', 'Q2', 'Q3', 'Q4'] }} />);
   expect(screen.getByRole('img', { name: /วงกลมเวทมนตร์.*4 ชิ้นส่วน/ })).toBeInTheDocument();
   fireEvent.click(screen.getByRole('button', { name: /ประกอบวงกลม/ }));
+  fireEvent.click(screen.getByRole('button', { name: /ข้ามแอนิเมชัน/ }));
+  fireEvent.click(screen.getByRole('button', { name: /เข้าสู่บททดสอบสุดท้าย/ }));
   expect(within(screen.getByRole('group', { name: /การ์ดมุม/ })).getByText('45°')).toBeInTheDocument();
   expect(screen.getByRole('button', { name: /Sin เครื่องหมายบวก/ })).toBeDisabled();
   fireEvent.click(screen.getByRole('button', { name: /^All/ }));

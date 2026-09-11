@@ -139,9 +139,9 @@ The parchment angle card is framed with a 5px double border and CSS diamond tabs
 
 ### Obstacles and feedback
 
-Cos Bridge and Sin Tower are CSS constructions; rejected alpha-test assets are not substitutes for their shipped geometry. The protagonist and Tan Gate use actual existing PNG assets. No new raster asset files were introduced by this refinement.
+Cos Bridge, Sin Tower, and Tan Gate now use dedicated painted obstacle PNGs under `public/assets/obstacles/`; the bridge, tower lift, and gate magic remain separately animated so the structural frame does not distort. The protagonist still uses the existing Pathfinder PNG. Mathematical labels and sign cues remain HTML/CSS/SVG.
 
-Pathfinder translates left/right for cosine and vertically for sine. The tower lift moves on success; the Tan Gate pivots open and reveals a light layer. Motion is causal: the shared exit easing is `cubic-bezier(.16,1,.3,1)`, feedback enters over 250ms, tower lift movement takes 650ms, and the gate opening takes 700ms. Incorrect obstacle feedback uses a short 260ms displacement; successful restoration lasts 750ms. The inherited Pathfinder transition is 520ms. Reduced motion disables animations and reduces transition duration to .01ms, leaving final states visible.
+Pathfinder translates left/right for cosine and vertically for sine. The tower lift moves on success; the Tan Gate keeps its stone frame stable, brightens, and reveals a light layer. Motion is causal: the shared exit easing is `cubic-bezier(.16,1,.3,1)`, feedback enters over 250ms, tower lift movement takes 650ms, and the gate awakening takes 700ms. Incorrect obstacle feedback uses a short 260ms displacement; successful restoration lasts 750ms. The inherited Pathfinder transition is 520ms. Reduced motion disables animations and reduces transition duration to .01ms, leaving final states visible.
 
 ## Do's and Don'ts
 

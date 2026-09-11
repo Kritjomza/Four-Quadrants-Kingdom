@@ -1,0 +1,57 @@
+/* Restoration ritual: player-triggered, finite, and skippable. */
+.assembly-screen { overflow: hidden; padding: 32px 36px; gap: 12px; background: radial-gradient(ellipse at 50% 43%,#27535580,transparent 55%),linear-gradient(#11252bf0,#101d2cf5),url('/assets/style-test/q1-dawn-meadow-bg.webp') center/cover; color: #fff1cf; }
+.assembly-screen::after { border-color: #c9aa6255; }
+.assembly-screen h1 { max-width: 26ch; font-size: clamp(1.65rem,3.1vw,2.6rem); }
+.ritual-heading { position: relative; z-index: 2; }
+.ritual-stage { width: 100%; max-width: 1000px; height: clamp(330px,39vw,480px); position: relative; display: grid; place-items: center; isolation: isolate; }
+.ritual-circle { position: relative; width: min(450px,49vw); aspect-ratio: 1; color: #e9c77d; z-index: 2; }
+.ritual-orbit,.ritual-geometry { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.2; }
+.ritual-orbit { opacity: .6; }.ritual-geometry { z-index: 3; opacity: .3; transition: opacity 500ms; }.ritual-geometry text { stroke: none; fill: #fff0c7; font-size: 13px; text-anchor: middle; font-weight: 600; }.ritual-geometry path { stroke-width: 1.5; }
+.ritual-fragments { position: absolute; inset: 13%; }
+.ritual-fragment { position: absolute; width: 50%; height: 50%; overflow: hidden; isolation: isolate; border: 2px solid #e6c578; box-shadow: 0 10px 20px #060d1880; transform: translate(var(--rest-x),var(--rest-y)); transition: transform 1200ms cubic-bezier(.16,1,.3,1),box-shadow 700ms; }
+.ritual-fragment::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg,#0d172c88,transparent 80%); z-index: -1; }.ritual-fragment > span:last-child { position: absolute; top: 48%; left: 45%; color: #fff6db; text-shadow: 0 2px 5px #08151c; font-family: Georgia,serif; font-size: clamp(1rem,2.8vw,1.7rem); }
+.fragment-q1 { top: 0; right: 0; border-radius: 0 100% 0 0; --rest-x: 13%; --rest-y: -13%; }
+.fragment-q2 { top: 0; left: 0; border-radius: 100% 0 0 0; --rest-x: -13%; --rest-y: -13%; }
+.fragment-q3 { bottom: 0; left: 0; border-radius: 0 0 0 100%; --rest-x: -13%; --rest-y: 13%; }
+.fragment-q4 { bottom: 0; right: 0; border-radius: 0 0 100% 0; --rest-x: 13%; --rest-y: 13%; }
+.ritual-assembling .ritual-fragment,.ritual-complete .ritual-fragment { transform: translate(0,0); transition-delay: calc(var(--fragment-index)*150ms); box-shadow: 0 5px 12px #07101866; }
+.ritual-core { position: absolute; z-index: 4; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 52px; height: 52px; display: grid; place-items: center; border: 5px double #caac65; border-radius: 50%; background: #142f34; color: #f6d588; box-shadow: 0 6px 14px #05171f88; transition: background 600ms,color 600ms; }
+.ritual-core span { font-family: Georgia,serif; font-size: 1.75rem; }.ritual-complete .ritual-core { background: #e9c677; color: #152c31; }.ritual-complete .ritual-geometry { opacity: 1; }
+.ritual-halo { position: absolute; width: 60%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle,#d9b56633,transparent 65%); pointer-events: none; }
+.ritual-assembling .ritual-orbit { animation: ritual-turn 2600ms cubic-bezier(.2,.8,.2,1); }.ritual-assembling .ritual-halo { animation: ritual-light 2600ms ease-out; }
+.ritual-burst { position: absolute; inset: 0; pointer-events: none; }.ritual-burst i { position: absolute; left: calc(50% - 2px); top: calc(50% - 2px); width: 4px; height: 4px; border-radius: 50%; background: #ffde92; opacity: 0; transform: rotate(var(--spark-angle)) translateY(40px); }.ritual-assembling .ritual-burst i { animation: ritual-spark 1000ms 1450ms ease-out both; }
+.ritual-pathfinder { position: absolute; width: 260px; height: auto; left: -4%; bottom: 0; z-index: 1; filter: drop-shadow(0 15px 18px #020b1766); }
+.ritual-collection { position: absolute; right: 0; top: 50%; transform: translateY(-50%); text-align: left; display: grid; gap: 12px; font-size: .78rem; }.ritual-collection strong { font-size: 1rem; color: #f4d891; margin-bottom: 5px; }.ritual-collection > span { display: flex; align-items: center; gap: 7px; color: #e6d9b9; }.ritual-collection b { color: #e7c479; }.ritual-collection svg { width: 18px; height: 18px; stroke: #a3d6ae; stroke-width: 2; fill: none; }
+.ritual-actions { min-height: 145px; display: grid; justify-items: center; gap: 12px; width: 100%; z-index: 3; }.ritual-status { color: #f6e7c3; }.ritual-actions > small { color: #bdceb9; font-size: .76rem; }.ritual-button { min-width: 260px; background: #e7c574; color: #263027; border-color: #ffe2a0; }.ritual-button:hover:not(:disabled) { background: #f5d693; color: #263027; }.ritual-skip { min-height: 54px; padding: 10px 30px; color: #f8e4b2; border: 1px solid #bda773; border-radius: 8px; background: #20393e; cursor: pointer; }.ritual-complete .ritual-status { color: #bde7c5; }
+@keyframes ritual-turn { from { transform: rotate(-65deg); opacity: .35; } 65% { opacity: 1; } to { transform: rotate(0); opacity: .6; } }
+@keyframes ritual-light { 0%,100% { transform: scale(.9); opacity: .5; } 65% { transform: scale(1.35); opacity: 1; } }
+@keyframes ritual-spark { 0% { opacity: 0; transform: rotate(var(--spark-angle)) translateY(75px); } 20% { opacity: 1; } 100% { opacity: 0; transform: rotate(var(--spark-angle)) translateY(230px); } }
+@media (max-width:900px) { .ritual-collection { position: static; transform: none; display: none; }.ritual-circle { width: min(430px,65vw); }.ritual-pathfinder { width: 210px; left: -8%; }.ritual-stage { height: 430px; } }
+@media (max-width:600px) { .assembly-screen { padding: 26px 16px; }.assembly-screen h1 { font-size: 1.65rem; }.ritual-stage { height: 330px; }.ritual-circle { width: min(330px,85vw); }.ritual-pathfinder { width: 130px; left: -8%; bottom: -8px; opacity: .8; }.ritual-core { width: 38px; height: 38px; }.ritual-core span { font-size: 1.3rem; }.ritual-status { font-size: .9rem; }.ritual-actions { gap: 10px; }.ritual-button { min-width: 0; width: 100%; }.ritual-fragment > span:last-child { font-size: 1.2rem; } }
+@media (prefers-reduced-motion:reduce) { .ritual-assembling *,.ritual-complete * { animation: none !important; transition: none !important; } }
+
+/* Painted obstacle sprites keep their frame stable; only the meaningful control moves. */
+.obstacle-art > .asset-obstacle { min-width: 0; min-height: 0; max-width: 100%; max-height: 100%; }
+.asset-obstacle { position: relative; width: 100%; height: 100%; min-width: 0; min-height: 0; display: grid; place-items: center; overflow: visible; filter: drop-shadow(0 14px 10px #14221d66); }
+.asset-obstacle > img { display: block; width: 100%; height: 100%; min-width: 0; min-height: 0; object-fit: contain; object-position: center; mix-blend-mode: screen; }
+.cos-asset { min-width: 360px; }
+.cos-asset > img { object-fit: contain; }
+.cos-asset .axis-caption { bottom: 4%; }
+.sin-asset { min-width: 190px; }
+.sin-asset > img { object-fit: contain; }
+.sin-lift { position: absolute; left: 27%; right: 27%; bottom: 15%; height: 18px; border: 4px ridge #d2aa65; background: linear-gradient(#bd8a4a,#684527); box-shadow: 0 3px 6px #17251d88; transition: transform 650ms var(--motion-out), box-shadow 650ms; }
+.outcome-correct .sin-lift { transform: translateY(-90px); box-shadow: 0 0 24px #f6d783; }
+.outcome-incorrect .sin-lift { animation: lift-shake 260ms ease-out; }
+.sin-asset .axis-caption { left: 7%; bottom: 18%; }
+.tan-asset { min-width: 190px; }
+.tan-asset > img { object-fit: contain; transition: filter 500ms var(--motion-out), transform 500ms var(--motion-out); }
+.tan-asset.gate-open > img { filter: brightness(1.25) saturate(1.2); transform: scale(1.03); }
+.tan-asset.gate-failed > img { filter: saturate(.6) brightness(.78); animation: gate-shake 260ms ease-out; }
+.gate-magic { position: absolute; left: 28%; right: 28%; top: 25%; bottom: 8%; border-radius: 46% 46% 10% 10%; background: radial-gradient(ellipse at center, #ffe5a588, #ebbb3c20 45%, transparent 72%); opacity: 0; pointer-events: none; }
+.gate-open .gate-magic { opacity: 1; animation: gate-awaken 700ms var(--motion-out); }
+.gate-status { z-index: 2; }
+@keyframes lift-shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
+@keyframes gate-shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
+@keyframes gate-awaken { from { opacity: 0; transform: scale(.8); } 55% { opacity: 1; transform: scale(1.08); } to { opacity: 1; transform: scale(1); } }
+@media (max-width: 600px) { .cos-asset { min-width: 270px; }.sin-asset,.tan-asset { min-width: 150px; } }
+@media (prefers-reduced-motion: reduce) { .asset-obstacle *, .asset-obstacle > img { animation: none !important; transition: none !important; } }

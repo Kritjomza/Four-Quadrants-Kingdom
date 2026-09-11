@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import './globals.css';
 import './journal.css';
+import './game-effects.css';
 import { IBM_Plex_Sans_Thai } from 'next/font/google';
 
 const journalFont = IBM_Plex_Sans_Thai({ weight: ['400', '500', '600', '700'], subsets: ['thai', 'latin'], display: 'swap' });

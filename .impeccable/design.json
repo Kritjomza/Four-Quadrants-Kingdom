@@ -23,7 +23,7 @@
       { "name": "motion-out", "value": "cubic-bezier(.16,1,.3,1)", "purpose": "Card, feedback, gate, lift and reward movement." },
       { "name": "feedback-arrival", "value": "250ms", "purpose": "Move feedback into place by 6px." },
       { "name": "tower-lift", "value": "650ms", "purpose": "Show vertical success." },
-      { "name": "gate-open", "value": "700ms", "purpose": "Open Tan Gate by rotating its PNG layer." },
+      { "name": "gate-open", "value": "700ms", "purpose": "Awaken the Tan Gate asset without distorting its structural frame." },
       { "name": "reduced-motion", "value": "animation: none !important; transition-duration: .01ms !important", "purpose": "Preserve final states without animated travel when reduced motion is requested." }
     ],
     "breakpoints": [
@@ -47,12 +47,12 @@
   "narrative": {
     "northStar": "Living Field Journal",
     "overview": "An explorer's field journal opens into a living fantasy landscape. Painted scenery provides wonder, parchment and brass make controls tactile, and crisp HTML/SVG keeps mathematics readable. This extends the approved world. Reviewer disposition is ship for initial Cos desktop/mobile screenshots only; all states are not visually certified.",
-    "keyCharacteristics": ["Painted scenes with CSS parchment and brass controls", "Thai-first typography and digital geometry", "Purposeful spatial motion with reduced-motion support", "Existing raster assets reused; no new raster files"],
+    "keyCharacteristics": ["Painted scenes with CSS parchment and brass controls", "Thai-first typography and digital geometry", "Purposeful spatial motion with reduced-motion support", "Dedicated painted obstacle assets with CSS-authored controls"],
     "rules": [
       { "name": "Explicit Sign Rule", "body": "Color accompanies labels and signs; it never determines the mathematical answer.", "section": "colors" },
       { "name": "Digital Geometry Rule", "body": "Render numbers, angles, signs, labels, and axes in HTML or SVG, never raster scenery.", "section": "typography" }
     ],
     "dos": ["Do extend the existing Living Field Journal identity.", "Do use causal spatial movement and preserve reduced-motion final states.", "Do identify LandArt as crops of the existing style board, not four production landscape files."],
-    "donts": ["Don't introduce personified skill cards or glossy plastic styling.", "Don't bake mathematical labels into images.", "Don't replace CSS bridge/tower geometry with rejected alpha-test assets.", "Don't claim every state is visually certified."]
+    "donts": ["Don't introduce personified skill cards or glossy plastic styling.", "Don't bake mathematical labels into images.", "Don't animate a structural obstacle frame as if it were a hinged object.", "Don't claim every state is visually certified."]
   }
 }
